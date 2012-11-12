@@ -84,8 +84,12 @@ static NSArray * TextInputsInView(UIView *view)
 	
 	NSArray *textInputs = TextInputsInView([[UIApplication sharedApplication] keyWindow]);
 	return [textInputs sortedArrayUsingComparator:^NSComparisonResult(UIView *textInput1, UIView *textInput2) {
-		CGRect frame1 = [textInput1 convertRect:textInput1.bounds toView:nil];
-		CGRect frame2 = [textInput2 convertRect:textInput2.bounds toView:nil];
+		UIView *commonAncestorView = textInput1.superview;
+		while (commonAncestorView && ![textInput2 isDescendantOfView:commonAncestorView])
+			commonAncestorView = commonAncestorView.superview;
+		
+		CGRect frame1 = [textInput1 convertRect:textInput1.bounds toView:commonAncestorView];
+		CGRect frame2 = [textInput2 convertRect:textInput2.bounds toView:commonAncestorView];
 		return [@(CGRectGetMinY(frame1)) compare:@(CGRectGetMinY(frame2))];
 	}];
 }
