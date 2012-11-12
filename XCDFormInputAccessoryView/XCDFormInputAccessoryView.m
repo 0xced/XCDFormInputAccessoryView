@@ -56,10 +56,8 @@ static NSArray * EditableTextInputsInView(UIView *view)
 	segmentedControl.momentary = YES;
 	UIBarButtonItem *segmentedControlBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:segmentedControl];
 	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-	UIBarButtonItem *doneBarButtonItem = nil;
-	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
-		doneBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
-	_toolbar.items = [NSArray arrayWithObjects:segmentedControlBarButtonItem, flexibleSpace, doneBarButtonItem, nil];
+	_toolbar.items = @[ segmentedControlBarButtonItem, flexibleSpace ];
+	self.hasDoneButton = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
 	
 	[self addSubview:_toolbar];
 	
@@ -117,6 +115,19 @@ static NSArray * EditableTextInputsInView(UIView *view)
 		CGRect frame2 = [textInput2 convertRect:textInput2.bounds toView:commonAncestorView];
 		return [@(CGRectGetMinY(frame1)) compare:@(CGRectGetMinY(frame2))];
 	}];
+}
+
+- (void) setHasDoneButton:(BOOL)hasDoneButton
+{
+	if (_hasDoneButton == hasDoneButton)
+		return;
+	
+	_hasDoneButton = hasDoneButton;
+	
+	if (hasDoneButton)
+		_toolbar.items = [_toolbar.items arrayByAddingObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)]];
+	else
+		_toolbar.items = [_toolbar.items subarrayWithRange:NSMakeRange(0, 2)];
 }
 
 #pragma mark - Actions

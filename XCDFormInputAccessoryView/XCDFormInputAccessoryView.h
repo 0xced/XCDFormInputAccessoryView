@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) NSArray *responders;
 
+@property (nonatomic, assign) BOOL hasDoneButton; // Defaults to YES on iPhone, NO on iPad
+
 @end
