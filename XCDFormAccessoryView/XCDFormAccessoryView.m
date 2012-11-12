@@ -61,12 +61,39 @@ static NSArray * TextInputsInView(UIView *view)
 	
 	[self addSubview:_toolbar];
 	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textInputDidBeginEditing:) name:UITextFieldTextDidBeginEditingNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textInputDidBeginEditing:) name:UITextViewTextDidBeginEditingNotification object:nil];
+	
 	return self;
+}
+
+- (void) dealloc
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void) updateSegmentedControl
+{
+	NSArray *responders = self.responders;
+	if ([responders count] == 0)
+		return;
+	
+	UISegmentedControl *segmentedControl = (UISegmentedControl *)[_toolbar.items[0] customView];
+	BOOL isFirst = [[responders objectAtIndex:0] isFirstResponder];
+	BOOL isLast = [[responders lastObject] isFirstResponder];
+	[segmentedControl setEnabled:!isFirst forSegmentAtIndex:0];
+	[segmentedControl setEnabled:!isLast forSegmentAtIndex:1];
 }
 
 - (void) willMoveToWindow:(UIWindow *)window
 {
 	self.frame = _toolbar.frame = (CGRect){CGPointZero, [_toolbar sizeThatFits:CGSizeZero]};
+	[self updateSegmentedControl];
+}
+
+- (void) textInputDidBeginEditing:(NSNotification *)notification
+{
+	[self updateSegmentedControl];
 }
 
 - (NSArray *) responders
