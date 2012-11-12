@@ -40,12 +40,6 @@ static NSArray * TextInputsInView(UIView *view)
 
 - (id) initWithResponders:(NSArray *)responders
 {
-	NSArray *nonResponders = [responders filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
-		return ![evaluatedObject isKindOfClass:[UIResponder class]];
-	}]];
-	if ([nonResponders count] > 0)
-		return nil;
-	
 	if (!(self = [super initWithFrame:CGRectZero]))
 		return nil;
 	

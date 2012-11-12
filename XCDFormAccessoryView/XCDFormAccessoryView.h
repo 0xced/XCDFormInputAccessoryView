@@ -9,7 +9,7 @@
 
 @interface XCDFormAccessoryView : UIView
 
-- (id) initWithResponders:(NSArray *)responders;
+- (id) initWithResponders:(NSArray *)responders; // Objects must be UIResponder instances
 
 @property (nonatomic, readonly) NSArray *responders;
 
