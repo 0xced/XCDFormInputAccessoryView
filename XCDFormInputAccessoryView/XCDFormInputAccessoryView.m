@@ -119,15 +119,23 @@ static NSArray * EditableTextInputsInView(UIView *view)
 
 - (void) setHasDoneButton:(BOOL)hasDoneButton
 {
+	[self setHasDoneButton:hasDoneButton animated:NO];
+}
+
+- (void) setHasDoneButton:(BOOL)hasDoneButton animated:(BOOL)animated
+{
 	if (_hasDoneButton == hasDoneButton)
 		return;
 	
 	_hasDoneButton = hasDoneButton;
 	
+	NSArray *items;
 	if (hasDoneButton)
-		_toolbar.items = [_toolbar.items arrayByAddingObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)]];
+		items = [_toolbar.items arrayByAddingObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)]];
 	else
-		_toolbar.items = [_toolbar.items subarrayWithRange:NSMakeRange(0, 2)];
+		items = [_toolbar.items subarrayWithRange:NSMakeRange(0, 2)];
+	
+	[_toolbar setItems:items animated:animated];
 }
 
 #pragma mark - Actions

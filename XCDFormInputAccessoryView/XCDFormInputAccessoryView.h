@@ -15,4 +15,6 @@
 
 @property (nonatomic, assign) BOOL hasDoneButton; // Defaults to YES on iPhone, NO on iPad
 
+- (void) setHasDoneButton:(BOOL)hasDoneButton animated:(BOOL)animated;
+
 @end
