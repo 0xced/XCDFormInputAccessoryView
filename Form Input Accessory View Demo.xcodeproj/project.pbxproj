@@ -17,18 +17,18 @@
 		C2F07147164DCA75008F4BA2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F07146164DCA75008F4BA2 /* CoreGraphics.framework */; };
 		C2F07153164DCA75008F4BA2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F07152164DCA75008F4BA2 /* AppDelegate.m */; };
 		C2F0715F164DCA75008F4BA2 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F0715E164DCA75008F4BA2 /* DemoViewController.m */; };
-		C2F0716C164F0E32008F4BA2 /* XCDFormAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F0716B164F0E32008F4BA2 /* XCDFormAccessoryView.m */; };
+		C2F0716C164F0E32008F4BA2 /* XCDFormInputAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F0716B164F0E32008F4BA2 /* XCDFormInputAccessoryView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C2154275164FD1C800262EB1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C2154276164FD1C800262EB1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C2154277164FD1C800262EB1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		C2154278164FD1C800262EB1 /* Form Accessory View Demo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Form Accessory View Demo-Info.plist"; sourceTree = "<group>"; };
-		C2154279164FD1C800262EB1 /* Form Accessory View Demo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Form Accessory View Demo-Prefix.pch"; sourceTree = "<group>"; };
+		C2154278164FD1C800262EB1 /* Form Input Accessory View Demo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Form Input Accessory View Demo-Info.plist"; sourceTree = "<group>"; };
+		C2154279164FD1C800262EB1 /* Form Input Accessory View Demo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Form Input Accessory View Demo-Prefix.pch"; sourceTree = "<group>"; };
 		C215427A164FD1C800262EB1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C215427B164FD1C800262EB1 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
-		C2F0713E164DCA75008F4BA2 /* Form Accessory View Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Form Accessory View Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2F0713E164DCA75008F4BA2 /* Form Input Accessory View Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Form Input Accessory View Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F07142164DCA75008F4BA2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C2F07144164DCA75008F4BA2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C2F07146164DCA75008F4BA2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -36,8 +36,8 @@
 		C2F07152164DCA75008F4BA2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C2F0715D164DCA75008F4BA2 /* DemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
 		C2F0715E164DCA75008F4BA2 /* DemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
-		C2F0716A164F0E32008F4BA2 /* XCDFormAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCDFormAccessoryView.h; sourceTree = "<group>"; };
-		C2F0716B164F0E32008F4BA2 /* XCDFormAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCDFormAccessoryView.m; sourceTree = "<group>"; };
+		C2F0716A164F0E32008F4BA2 /* XCDFormInputAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCDFormInputAccessoryView.h; sourceTree = "<group>"; };
+		C2F0716B164F0E32008F4BA2 /* XCDFormInputAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCDFormInputAccessoryView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +57,7 @@
 		C2F07133164DCA75008F4BA2 = {
 			isa = PBXGroup;
 			children = (
-				C2F07169164F0E1E008F4BA2 /* XCDFormAccessoryView */,
+				C2F07169164F0E1E008F4BA2 /* XCDFormInputAccessoryView */,
 				C2F07148164DCA75008F4BA2 /* Form Accessory View Demo */,
 				C2F07141164DCA75008F4BA2 /* Frameworks */,
 				C2F0713F164DCA75008F4BA2 /* Products */,
@@ -67,7 +67,7 @@
 		C2F0713F164DCA75008F4BA2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C2F0713E164DCA75008F4BA2 /* Form Accessory View Demo.app */,
+				C2F0713E164DCA75008F4BA2 /* Form Input Accessory View Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,29 +92,29 @@
 				C2154277164FD1C800262EB1 /* Default@2x.png */,
 				C2F0715D164DCA75008F4BA2 /* DemoViewController.h */,
 				C2F0715E164DCA75008F4BA2 /* DemoViewController.m */,
-				C2154278164FD1C800262EB1 /* Form Accessory View Demo-Info.plist */,
-				C2154279164FD1C800262EB1 /* Form Accessory View Demo-Prefix.pch */,
+				C2154278164FD1C800262EB1 /* Form Input Accessory View Demo-Info.plist */,
+				C2154279164FD1C800262EB1 /* Form Input Accessory View Demo-Prefix.pch */,
 				C215427A164FD1C800262EB1 /* main.m */,
 				C215427B164FD1C800262EB1 /* MainStoryboard.storyboard */,
 			);
 			path = "Form Accessory View Demo";
 			sourceTree = "<group>";
 		};
-		C2F07169164F0E1E008F4BA2 /* XCDFormAccessoryView */ = {
+		C2F07169164F0E1E008F4BA2 /* XCDFormInputAccessoryView */ = {
 			isa = PBXGroup;
 			children = (
-				C2F0716A164F0E32008F4BA2 /* XCDFormAccessoryView.h */,
-				C2F0716B164F0E32008F4BA2 /* XCDFormAccessoryView.m */,
+				C2F0716A164F0E32008F4BA2 /* XCDFormInputAccessoryView.h */,
+				C2F0716B164F0E32008F4BA2 /* XCDFormInputAccessoryView.m */,
 			);
-			path = XCDFormAccessoryView;
+			path = XCDFormInputAccessoryView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C2F0713D164DCA75008F4BA2 /* Form Accessory View Demo */ = {
+		C2F0713D164DCA75008F4BA2 /* Form Input Accessory View Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C2F07162164DCA75008F4BA2 /* Build configuration list for PBXNativeTarget "Form Accessory View Demo" */;
+			buildConfigurationList = C2F07162164DCA75008F4BA2 /* Build configuration list for PBXNativeTarget "Form Input Accessory View Demo" */;
 			buildPhases = (
 				C2F0713A164DCA75008F4BA2 /* Sources */,
 				C2F0713B164DCA75008F4BA2 /* Frameworks */,
@@ -124,9 +124,9 @@
 			);
 			dependencies = (
 			);
-			name = "Form Accessory View Demo";
+			name = "Form Input Accessory View Demo";
 			productName = "Form Accessory View Demo";
-			productReference = C2F0713E164DCA75008F4BA2 /* Form Accessory View Demo.app */;
+			productReference = C2F0713E164DCA75008F4BA2 /* Form Input Accessory View Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -138,7 +138,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Cédric Luthi";
 			};
-			buildConfigurationList = C2F07138164DCA75008F4BA2 /* Build configuration list for PBXProject "Form Accessory View Demo" */;
+			buildConfigurationList = C2F07138164DCA75008F4BA2 /* Build configuration list for PBXProject "Form Input Accessory View Demo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -150,7 +150,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C2F0713D164DCA75008F4BA2 /* Form Accessory View Demo */,
+				C2F0713D164DCA75008F4BA2 /* Form Input Accessory View Demo */,
 			);
 		};
 /* End PBXProject section */
@@ -177,7 +177,7 @@
 				C2154280164FD1C800262EB1 /* main.m in Sources */,
 				C2F07153164DCA75008F4BA2 /* AppDelegate.m in Sources */,
 				C2F0715F164DCA75008F4BA2 /* DemoViewController.m in Sources */,
-				C2F0716C164F0E32008F4BA2 /* XCDFormAccessoryView.m in Sources */,
+				C2F0716C164F0E32008F4BA2 /* XCDFormInputAccessoryView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,9 +252,9 @@
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Form Accessory View Demo/Form Accessory View Demo-Prefix.pch";
-				INFOPLIST_FILE = "Form Accessory View Demo/Form Accessory View Demo-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Form Accessory View Demo/Form Input Accessory View Demo-Prefix.pch";
+				INFOPLIST_FILE = "Form Accessory View Demo/Form Input Accessory View Demo-Info.plist";
+				PRODUCT_NAME = "Form Input Accessory View Demo";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -267,9 +267,9 @@
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Form Accessory View Demo/Form Accessory View Demo-Prefix.pch";
-				INFOPLIST_FILE = "Form Accessory View Demo/Form Accessory View Demo-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Form Accessory View Demo/Form Input Accessory View Demo-Prefix.pch";
+				INFOPLIST_FILE = "Form Accessory View Demo/Form Input Accessory View Demo-Info.plist";
+				PRODUCT_NAME = "Form Input Accessory View Demo";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -277,7 +277,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C2F07138164DCA75008F4BA2 /* Build configuration list for PBXProject "Form Accessory View Demo" */ = {
+		C2F07138164DCA75008F4BA2 /* Build configuration list for PBXProject "Form Input Accessory View Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2F07160164DCA75008F4BA2 /* Debug */,
@@ -286,7 +286,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C2F07162164DCA75008F4BA2 /* Build configuration list for PBXNativeTarget "Form Accessory View Demo" */ = {
+		C2F07162164DCA75008F4BA2 /* Build configuration list for PBXNativeTarget "Form Input Accessory View Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2F07163164DCA75008F4BA2 /* Debug */,

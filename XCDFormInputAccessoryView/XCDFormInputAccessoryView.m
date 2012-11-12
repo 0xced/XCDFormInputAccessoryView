@@ -1,11 +1,11 @@
 //
-//  XCDFormAccessoryView.m
+//  XCDFormInputAccessoryView.m
 //
 //  Created by Cédric Luthi on 2012-11-10
 //  Copyright (c) 2012 Cédric Luthi. All rights reserved.
 //
 
-#import "XCDFormAccessoryView.h"
+#import "XCDFormInputAccessoryView.h"
 
 static NSString * UIKitLocalizedString(NSString *string)
 {
@@ -26,7 +26,7 @@ static NSArray * TextInputsInView(UIView *view)
 	return textInputs;
 }
 
-@implementation XCDFormAccessoryView
+@implementation XCDFormInputAccessoryView
 {
 	UIToolbar *_toolbar;
 }

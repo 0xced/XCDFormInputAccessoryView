@@ -8,11 +8,11 @@
 
 #import "DemoViewController.h"
 
-#import "XCDFormAccessoryView.h"
+#import "XCDFormInputAccessoryView.h"
 
 @implementation DemoViewController
 {
-	UIView *_inputAccessoryView;
+	XCDFormInputAccessoryView *_inputAccessoryView;
 }
 
 - (void) setTextInputs:(NSArray *)textInputs
@@ -38,8 +38,8 @@
 {
 	if (!_inputAccessoryView)
 	{
-		_inputAccessoryView = [[XCDFormAccessoryView alloc] initWithResponders:self.textInputs];
-		//_inputAccessoryView = [[XCDFormAccessoryView alloc] init];
+		_inputAccessoryView = [[XCDFormInputAccessoryView alloc] initWithResponders:self.textInputs];
+		//_inputAccessoryView = [[XCDFormInputAccessoryView alloc] init];
 		//_inputAccessoryView = [[NSClassFromString(@"UIWebFormAccessory") alloc] init];
 	}
 	return _inputAccessoryView;
