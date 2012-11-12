@@ -127,7 +127,9 @@ static NSArray * EditableTextInputsInView(UIView *view)
 	if (_hasDoneButton == hasDoneButton)
 		return;
 	
+	[self willChangeValueForKey:@"hasDoneButton"];
 	_hasDoneButton = hasDoneButton;
+	[self didChangeValueForKey:@"hasDoneButton"];
 	
 	NSArray *items;
 	if (hasDoneButton)
