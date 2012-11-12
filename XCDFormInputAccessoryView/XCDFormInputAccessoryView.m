@@ -13,15 +13,17 @@ static NSString * UIKitLocalizedString(NSString *string)
 	return UIKitBundle ? [UIKitBundle localizedStringForKey:string value:string table:nil] : string;
 }
 
-static NSArray * TextInputsInView(UIView *view)
+static NSArray * EditableTextInputsInView(UIView *view)
 {
 	NSMutableArray *textInputs = [NSMutableArray new];
 	for (UIView *subview in view.subviews)
 	{
-		if ([subview isKindOfClass:[UITextField class]] || [subview isKindOfClass:[UITextView class]])
+		BOOL isTextField = [subview isKindOfClass:[UITextField class]];
+		BOOL isEditableTextView = [subview isKindOfClass:[UITextView class]] && [(UITextView *)subview isEditable];
+		if (isTextField || isEditableTextView)
 			[textInputs addObject:subview];
 		else
-			[textInputs addObjectsFromArray:TextInputsInView(subview)];
+			[textInputs addObjectsFromArray:EditableTextInputsInView(subview)];
 	}
 	return textInputs;
 }
@@ -105,7 +107,7 @@ static NSArray * TextInputsInView(UIView *view)
 	if (_responders)
 		return _responders;
 	
-	NSArray *textInputs = TextInputsInView([[UIApplication sharedApplication] keyWindow]);
+	NSArray *textInputs = EditableTextInputsInView([[UIApplication sharedApplication] keyWindow]);
 	return [textInputs sortedArrayUsingComparator:^NSComparisonResult(UIView *textInput1, UIView *textInput2) {
 		UIView *commonAncestorView = textInput1.superview;
 		while (commonAncestorView && ![textInput2 isDescendantOfView:commonAncestorView])
