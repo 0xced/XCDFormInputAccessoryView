@@ -31,8 +31,6 @@ static NSArray * TextInputsInView(UIView *view)
 	UIToolbar *_toolbar;
 }
 
-@synthesize responders = _responders;
-
 - (id) initWithFrame:(CGRect)frame
 {
 	return [self initWithResponders:nil];

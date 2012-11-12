@@ -11,6 +11,6 @@
 
 - (id) initWithResponders:(NSArray *)responders; // Objects must be UIResponder instances
 
-@property (nonatomic, readonly) NSArray *responders;
+@property (nonatomic, strong) NSArray *responders;
 
 @end
