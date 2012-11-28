@@ -58,7 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				C2F07169164F0E1E008F4BA2 /* XCDFormInputAccessoryView */,
-				C2F07148164DCA75008F4BA2 /* Form Accessory View Demo */,
+				C2F07148164DCA75008F4BA2 /* Form Input Accessory View Demo */,
 				C2F07141164DCA75008F4BA2 /* Frameworks */,
 				C2F0713F164DCA75008F4BA2 /* Products */,
 			);
@@ -82,7 +82,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C2F07148164DCA75008F4BA2 /* Form Accessory View Demo */ = {
+		C2F07148164DCA75008F4BA2 /* Form Input Accessory View Demo */ = {
 			isa = PBXGroup;
 			children = (
 				C2F07151164DCA75008F4BA2 /* AppDelegate.h */,
@@ -97,7 +97,7 @@
 				C215427A164FD1C800262EB1 /* main.m */,
 				C215427B164FD1C800262EB1 /* MainStoryboard.storyboard */,
 			);
-			path = "Form Accessory View Demo";
+			path = "Form Input Accessory View Demo";
 			sourceTree = "<group>";
 		};
 		C2F07169164F0E1E008F4BA2 /* XCDFormInputAccessoryView */ = {
@@ -125,7 +125,7 @@
 			dependencies = (
 			);
 			name = "Form Input Accessory View Demo";
-			productName = "Form Accessory View Demo";
+			productName = "Form Input Accessory View Demo";
 			productReference = C2F0713E164DCA75008F4BA2 /* Form Input Accessory View Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -254,8 +254,8 @@
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Form Accessory View Demo/Form Input Accessory View Demo-Prefix.pch";
-				INFOPLIST_FILE = "Form Accessory View Demo/Form Input Accessory View Demo-Info.plist";
+				GCC_PREFIX_HEADER = "Form Input Accessory View Demo/Form Input Accessory View Demo-Prefix.pch";
+				INFOPLIST_FILE = "Form Input Accessory View Demo/Form Input Accessory View Demo-Info.plist";
 				PRODUCT_NAME = "Form Input Accessory View Demo";
 				WRAPPER_EXTENSION = app;
 			};
@@ -269,8 +269,8 @@
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Form Accessory View Demo/Form Input Accessory View Demo-Prefix.pch";
-				INFOPLIST_FILE = "Form Accessory View Demo/Form Input Accessory View Demo-Info.plist";
+				GCC_PREFIX_HEADER = "Form Input Accessory View Demo/Form Input Accessory View Demo-Prefix.pch";
+				INFOPLIST_FILE = "Form Input Accessory View Demo/Form Input Accessory View Demo-Info.plist";
 				PRODUCT_NAME = "Form Input Accessory View Demo";
 				WRAPPER_EXTENSION = app;
 			};
