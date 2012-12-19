@@ -18,7 +18,7 @@ static NSArray * EditableTextInputsInView(UIView *view)
 	NSMutableArray *textInputs = [NSMutableArray new];
 	for (UIView *subview in view.subviews)
 	{
-		BOOL isTextField = [subview isKindOfClass:[UITextField class]];
+		BOOL isTextField = [subview isKindOfClass:[UITextField class]] && [(UITextField *)subview isEnabled];
 		BOOL isEditableTextView = [subview isKindOfClass:[UITextView class]] && [(UITextView *)subview isEditable];
 		if (isTextField || isEditableTextView)
 			[textInputs addObject:subview];
