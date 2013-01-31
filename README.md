@@ -2,7 +2,7 @@ About
 =====
 `XCDFormInputAccessoryView` is a view to be used above the keyboard with *previous*, *next* and *done* buttons for navigating text fields.
 
-![screenshot](https://github.com/0xced/XCDFormInputAccessoryView/raw/master/Screenshots/XCDFormInputAccessoryView.png)
+![screenshot](Screenshots/XCDFormInputAccessoryView.png)
 
 `XCDFormInputAccessoryView` uses ARC (Automatic Reference Counting) and must be built with Xcode 4.5 or greater. It has been tested on iOS 4, 5 and 6.
 
