@@ -31,6 +31,7 @@ static NSArray * EditableTextInputsInView(UIView *view)
 @implementation XCDFormInputAccessoryView
 {
 	UIToolbar *_toolbar;
+    UISegmentedControl *_segmentedControl;
 }
 
 - (id) initWithFrame:(CGRect)frame
@@ -50,11 +51,11 @@ static NSArray * EditableTextInputsInView(UIView *view)
 	_toolbar.barStyle = UIBarStyleBlack;
 	_toolbar.translucent = YES;
 	_toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[ UIKitLocalizedString(@"Previous"), UIKitLocalizedString(@"Next") ]];
-	[segmentedControl addTarget:self action:@selector(selectAdjacentResponder:) forControlEvents:UIControlEventValueChanged];
-	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-	segmentedControl.momentary = YES;
-	UIBarButtonItem *segmentedControlBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:segmentedControl];
+	_segmentedControl = [[UISegmentedControl alloc] initWithItems:@[ UIKitLocalizedString(@"Previous"), UIKitLocalizedString(@"Next") ]];
+	[_segmentedControl addTarget:self action:@selector(selectAdjacentResponder:) forControlEvents:UIControlEventValueChanged];
+	_segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+	_segmentedControl.momentary = YES;
+	UIBarButtonItem *segmentedControlBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_segmentedControl];
 	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 	_toolbar.items = @[ segmentedControlBarButtonItem, flexibleSpace ];
 	self.hasDoneButton = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
@@ -93,6 +94,25 @@ static NSArray * EditableTextInputsInView(UIView *view)
 		return;
 	
 	[self updateSegmentedControl];
+}
+
+- (void) layoutSubviews
+{
+    [super layoutSubviews];
+    
+    [_segmentedControl setBackgroundImage:nil forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [_segmentedControl setBackgroundColor:[UIColor clearColor]];
+    [_segmentedControl setTintColor:[UIColor blackColor]];
+    
+    NSDictionary *selectedAttrs = @{
+                                    UITextAttributeFont : [UIFont boldSystemFontOfSize:12],
+                                    UITextAttributeTextColor : [UIColor whiteColor],
+                                    UITextAttributeTextShadowColor : [UIColor blackColor],
+                                    UITextAttributeTextShadowOffset : [NSValue valueWithCGSize:CGSizeMake(0, 1)]
+                                    };
+    
+    [_segmentedControl setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
+    [_segmentedControl setTitleTextAttributes:selectedAttrs forState:UIControlStateNormal];
 }
 
 - (void) textInputDidBeginEditing:(NSNotification *)notification
