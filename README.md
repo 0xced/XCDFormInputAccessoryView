@@ -29,6 +29,8 @@ If you want to have total control over what the **Previous** and **Next** button
 1. Find all text fields and editable text views in the key window
 2. Sort them using their frame origin vertical position
 
+If you need notification of **Previous** and **Next** button presses, use the optional `changeBlock` property to add a block-based callback (but beware of `self` retain cycles!).
+
 License
 =======
 The MIT License (MIT)
