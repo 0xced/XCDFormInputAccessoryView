@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^XCDFormInputAccessoryViewChangeBlock)(UIResponder *newResponder);
+
 @interface XCDFormInputAccessoryView : UIView
 
 - (id) initWithResponders:(NSArray *)responders; // Objects must be UIResponder instances
@@ -14,6 +16,8 @@
 @property (nonatomic, strong) NSArray *responders;
 
 @property (nonatomic, assign) BOOL hasDoneButton; // Defaults to YES on iPhone, NO on iPad
+
+@property (nonatomic, copy) XCDFormInputAccessoryViewChangeBlock changeBlock;
 
 - (void) setHasDoneButton:(BOOL)hasDoneButton animated:(BOOL)animated;
 
