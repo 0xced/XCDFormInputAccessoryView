@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^XCDFormInputAccessoryViewChangeBlock)(UIResponder *newResponder);
+typedef void(^XCDFormInputAccessoryViewChangeBlock)(UIResponder *newFirstResponder);
 
 @interface XCDFormInputAccessoryView : UIView
 
