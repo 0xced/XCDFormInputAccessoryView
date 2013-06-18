@@ -83,6 +83,8 @@ static NSArray * EditableTextInputsInView(UIView *view)
 	UISegmentedControl *segmentedControl = (UISegmentedControl *)[_toolbar.items[0] customView];
 	BOOL isFirst = [[responders objectAtIndex:0] isFirstResponder];
 	BOOL isLast = [[responders lastObject] isFirstResponder];
+    
+    segmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment;
 	[segmentedControl setEnabled:!isFirst forSegmentAtIndex:0];
 	[segmentedControl setEnabled:!isLast forSegmentAtIndex:1];
 }
