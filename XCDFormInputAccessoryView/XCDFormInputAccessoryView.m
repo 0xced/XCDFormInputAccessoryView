@@ -4,28 +4,13 @@
 //  Created by Cédric Luthi on 2012-11-10
 //  Copyright (c) 2012 Cédric Luthi. All rights reserved.
 //
-
+#import "XCDResponderChain.h"
 #import "XCDFormInputAccessoryView.h"
 
 static NSString * UIKitLocalizedString(NSString *string)
 {
 	NSBundle *UIKitBundle = [NSBundle bundleForClass:[UIApplication class]];
 	return UIKitBundle ? [UIKitBundle localizedStringForKey:string value:string table:nil] : string;
-}
-
-static NSArray * EditableTextInputsInView(UIView *view)
-{
-	NSMutableArray *textInputs = [NSMutableArray new];
-	for (UIView *subview in view.subviews)
-	{
-		BOOL isTextField = [subview isKindOfClass:[UITextField class]];
-		BOOL isEditableTextView = [subview isKindOfClass:[UITextView class]] && [(UITextView *)subview isEditable];
-		if (isTextField || isEditableTextView)
-			[textInputs addObject:subview];
-		else
-			[textInputs addObjectsFromArray:EditableTextInputsInView(subview)];
-	}
-	return textInputs;
 }
 
 @implementation XCDFormInputAccessoryView
@@ -40,10 +25,15 @@ static NSArray * EditableTextInputsInView(UIView *view)
 
 - (id) initWithResponders:(NSArray *)responders
 {
+    return [self initWithResponderChain:responders ? [[XCDResponderChain alloc] initWithResponders:responders] : nil];
+}
+
+- (id) initWithResponderChain:(XCDResponderChain *)responderChain
+{
 	if (!(self = [super initWithFrame:CGRectZero]))
 		return nil;
 	
-	_responders = responders;
+	_responderChain = responderChain;
 	
 	_toolbar = [[UIToolbar alloc] init];
 	_toolbar.tintColor = nil;
@@ -102,19 +92,23 @@ static NSArray * EditableTextInputsInView(UIView *view)
 
 - (NSArray *) responders
 {
-	if (_responders)
-		return _responders;
-	
-	NSArray *textInputs = EditableTextInputsInView([[UIApplication sharedApplication] keyWindow]);
-	return [textInputs sortedArrayUsingComparator:^NSComparisonResult(UIView *textInput1, UIView *textInput2) {
-		UIView *commonAncestorView = textInput1.superview;
-		while (commonAncestorView && ![textInput2 isDescendantOfView:commonAncestorView])
-			commonAncestorView = commonAncestorView.superview;
-		
-		CGRect frame1 = [textInput1 convertRect:textInput1.bounds toView:commonAncestorView];
-		CGRect frame2 = [textInput2 convertRect:textInput2.bounds toView:commonAncestorView];
-		return [@(CGRectGetMinY(frame1)) compare:@(CGRectGetMinY(frame2))];
-	}];
+    return self.responderChain.responders;
+}
+
+- (void) setResponders:(NSArray *)responders
+{
+    self.responderChain.responders = responders;
+}
+
+- (XCDResponderChain*) responderChain
+{
+    if (_responderChain == nil)
+    {
+        _responderChain = [XCDResponderChain
+                           responderChainWithTextFieldsInView:[[UIApplication sharedApplication] keyWindow]];
+        [_responderChain sortRespondersByPosition];
+    }
+    return _responderChain;
 }
 
 - (void) setHasDoneButton:(BOOL)hasDoneButton
@@ -144,18 +138,14 @@ static NSArray * EditableTextInputsInView(UIView *view)
 
 - (void) selectAdjacentResponder:(UISegmentedControl *)sender
 {
-	NSArray *firstResponders = [self.responders filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(UIResponder *responder, NSDictionary *bindings) {
-		return [responder isFirstResponder];
-	}]];
-	UIResponder *firstResponder = [firstResponders lastObject];
-	NSInteger offset = sender.selectedSegmentIndex == 0 ? -1 : +1;
-	NSInteger firstResponderIndex = [self.responders indexOfObject:firstResponder];
-	NSInteger adjacentResponderIndex = firstResponderIndex != NSNotFound ? firstResponderIndex + offset : NSNotFound;
-	UIResponder *adjacentResponder = nil;
-	if (adjacentResponderIndex >= 0 && adjacentResponderIndex < (NSInteger)[self.responders count])
-		adjacentResponder = [self.responders objectAtIndex:adjacentResponderIndex];
-	
-	[adjacentResponder becomeFirstResponder];
+	if (sender.selectedSegmentIndex == 0)
+    {
+        [self.responderChain  selectPreviousResponder];
+    }
+    else
+    {
+        [self.responderChain  selectNextResponder];
+    }
 }
 
 - (void) done
