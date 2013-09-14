@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8532576D17E4937A00D8E13D /* XCDResponderChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 8532576C17E4937A00D8E13D /* XCDResponderChain.m */; };
 		C215427C164FD1C800262EB1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2154275164FD1C800262EB1 /* Default-568h@2x.png */; };
 		C215427D164FD1C800262EB1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C2154276164FD1C800262EB1 /* Default.png */; };
 		C215427E164FD1C800262EB1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2154277164FD1C800262EB1 /* Default@2x.png */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8532576B17E4937A00D8E13D /* XCDResponderChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCDResponderChain.h; sourceTree = "<group>"; };
+		8532576C17E4937A00D8E13D /* XCDResponderChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCDResponderChain.m; sourceTree = "<group>"; };
 		C2154275164FD1C800262EB1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C2154276164FD1C800262EB1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C2154277164FD1C800262EB1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 			children = (
 				C2F0716A164F0E32008F4BA2 /* XCDFormInputAccessoryView.h */,
 				C2F0716B164F0E32008F4BA2 /* XCDFormInputAccessoryView.m */,
+				8532576B17E4937A00D8E13D /* XCDResponderChain.h */,
+				8532576C17E4937A00D8E13D /* XCDResponderChain.m */,
 			);
 			path = XCDFormInputAccessoryView;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 				C2F07153164DCA75008F4BA2 /* AppDelegate.m in Sources */,
 				C2F0715F164DCA75008F4BA2 /* DemoViewController.m in Sources */,
 				C2F0716C164F0E32008F4BA2 /* XCDFormInputAccessoryView.m in Sources */,
+				8532576D17E4937A00D8E13D /* XCDResponderChain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

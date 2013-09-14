@@ -76,4 +76,8 @@
 	return indexPath.row == 2 ? 200 : tableView.rowHeight;
 }
 
+- (IBAction)selectNextResponder:(id)sender {
+    [_inputAccessoryView.responderChain selectNextResponder];
+}
+
 @end

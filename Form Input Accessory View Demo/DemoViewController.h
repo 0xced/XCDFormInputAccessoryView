@@ -10,4 +10,6 @@
 
 @property (nonatomic, strong) IBOutletCollection(UIView) NSArray *textInputs;
 
+- (IBAction)selectNextResponder:(id)sender;
+
 @end
