@@ -61,7 +61,7 @@ static NSArray * EditableTextInputsInView(UIView *view)
 	
 	[self addSubview:_toolbar];
 	
-	self.frame = _toolbar.frame = (CGRect){CGPointZero, [_toolbar sizeThatFits:CGSizeZero]};
+	self.frame = _toolbar.frame = CGRectMake(0, 0, 0, 44);
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textInputDidBeginEditing:) name:UITextFieldTextDidBeginEditingNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textInputDidBeginEditing:) name:UITextViewTextDidBeginEditingNotification object:nil];
