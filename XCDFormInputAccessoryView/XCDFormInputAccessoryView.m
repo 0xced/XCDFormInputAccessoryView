@@ -28,10 +28,15 @@ static NSArray * EditableTextInputsInView(UIView *view)
 	return textInputs;
 }
 
+@interface XCDFormInputAccessoryView ()
+
+@property (strong, nonatomic) UIBarButtonItem *previousBarButtonItem;
+@property (strong, nonatomic) UIBarButtonItem *nextBarButtonItem;
+@property (strong, nonatomic) UIToolbar *toolbar;
+
+@end
+
 @implementation XCDFormInputAccessoryView
-{
-	UIToolbar *_toolbar;
-}
 
 - (id) initWithFrame:(CGRect)frame
 {
@@ -45,23 +50,26 @@ static NSArray * EditableTextInputsInView(UIView *view)
 	
 	_responders = responders;
 	
-	_toolbar = [[UIToolbar alloc] init];
-	_toolbar.tintColor = nil;
-	_toolbar.barStyle = UIBarStyleBlack;
-	_toolbar.translucent = YES;
-	_toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[ UIKitLocalizedString(@"Previous"), UIKitLocalizedString(@"Next") ]];
-	[segmentedControl addTarget:self action:@selector(selectAdjacentResponder:) forControlEvents:UIControlEventValueChanged];
-	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-	segmentedControl.momentary = YES;
-	UIBarButtonItem *segmentedControlBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:segmentedControl];
+	self.toolbar = [[UIToolbar alloc] init];
+	self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+	self.toolbar.tintColor = [UIColor blackColor];
+	
+	UIBarButtonItem *previousBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"UIButtonBarArrowLeft"] landscapeImagePhone:[UIImage imageNamed:@"UIButtonBarArrowLeftLandscape"] style:UIBarButtonItemStylePlain target:self action:@selector(previous:)];
+	self.previousBarButtonItem = previousBarButtonItem;
+	
+	UIBarButtonItem *nextBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"UIButtonBarArrowRight"] landscapeImagePhone:[UIImage imageNamed:@"UIButtonBarArrowRightLandscape"] style:UIBarButtonItemStylePlain target:self action:@selector(next:)];
+	self.nextBarButtonItem = nextBarButtonItem;
+	
 	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-	_toolbar.items = @[ segmentedControlBarButtonItem, flexibleSpace ];
+	UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+	[fixedSpace setWidth:32];
+	
+	self.toolbar.items = @[ previousBarButtonItem, fixedSpace, nextBarButtonItem, flexibleSpace ];
 	self.hasDoneButton = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
 	
-	[self addSubview:_toolbar];
+	[self addSubview:self.toolbar];
 	
-	self.frame = _toolbar.frame = CGRectMake(0, 0, 0, 44);
+	self.frame = self.toolbar.frame = CGRectMake(0, 0, 0, 44);
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textInputDidBeginEditing:) name:UITextFieldTextDidBeginEditingNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textInputDidBeginEditing:) name:UITextViewTextDidBeginEditingNotification object:nil];
@@ -74,17 +82,16 @@ static NSArray * EditableTextInputsInView(UIView *view)
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void) updateSegmentedControl
+- (void) updateBarButtonItems
 {
 	NSArray *responders = self.responders;
 	if ([responders count] == 0)
 		return;
 	
-	UISegmentedControl *segmentedControl = (UISegmentedControl *)[_toolbar.items[0] customView];
 	BOOL isFirst = [[responders objectAtIndex:0] isFirstResponder];
 	BOOL isLast = [[responders lastObject] isFirstResponder];
-	[segmentedControl setEnabled:!isFirst forSegmentAtIndex:0];
-	[segmentedControl setEnabled:!isLast forSegmentAtIndex:1];
+	[self.previousBarButtonItem setEnabled:!isFirst];
+	[self.nextBarButtonItem setEnabled:!isLast];
 }
 
 - (void) willMoveToWindow:(UIWindow *)window
@@ -92,12 +99,12 @@ static NSArray * EditableTextInputsInView(UIView *view)
 	if (!window)
 		return;
 	
-	[self updateSegmentedControl];
+	[self updateBarButtonItems];
 }
 
 - (void) textInputDidBeginEditing:(NSNotification *)notification
 {
-	[self updateSegmentedControl];
+	[self updateBarButtonItems];
 }
 
 - (NSArray *) responders
@@ -133,22 +140,22 @@ static NSArray * EditableTextInputsInView(UIView *view)
 	
 	NSArray *items;
 	if (hasDoneButton)
-		items = [_toolbar.items arrayByAddingObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)]];
+		items = [self.toolbar.items arrayByAddingObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)]];
 	else
-		items = [_toolbar.items subarrayWithRange:NSMakeRange(0, 2)];
+		items = [self.toolbar.items subarrayWithRange:NSMakeRange(0, 2)];
 	
-	[_toolbar setItems:items animated:animated];
+	[self.toolbar setItems:items animated:animated];
 }
 
 #pragma mark - Actions
 
-- (void) selectAdjacentResponder:(UISegmentedControl *)sender
+- (void) selectAdjacentResponderAtIndex:(NSInteger)index
 {
 	NSArray *firstResponders = [self.responders filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(UIResponder *responder, NSDictionary *bindings) {
 		return [responder isFirstResponder];
 	}]];
 	UIResponder *firstResponder = [firstResponders lastObject];
-	NSInteger offset = sender.selectedSegmentIndex == 0 ? -1 : +1;
+	NSInteger offset = index == 0 ? -1 : +1;
 	NSInteger firstResponderIndex = [self.responders indexOfObject:firstResponder];
 	NSInteger adjacentResponderIndex = firstResponderIndex != NSNotFound ? firstResponderIndex + offset : NSNotFound;
 	UIResponder *adjacentResponder = nil;
@@ -157,8 +164,18 @@ static NSArray * EditableTextInputsInView(UIView *view)
 	
 	// Resign the previous responder before selecting the next one, so the UIKeyboard events could be notified properly.
 	[firstResponder resignFirstResponder];
-    
+	
 	[adjacentResponder becomeFirstResponder];
+}
+
+- (void) previous:(UIBarButtonItem *)sender
+{
+	[self selectAdjacentResponderAtIndex:0];
+}
+
+- (void) next:(UIBarButtonItem *)sender
+{
+	[self selectAdjacentResponderAtIndex:1];
 }
 
 - (void) done
