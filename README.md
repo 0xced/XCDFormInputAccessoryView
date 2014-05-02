@@ -4,7 +4,7 @@ About
 
 ![screenshot](Screenshots/XCDFormInputAccessoryView.png)
 
-`XCDFormInputAccessoryView` uses ARC (Automatic Reference Counting) and must be built with Xcode 4.5 or greater. It has been tested on iOS 4, 5 and 6.
+`XCDFormInputAccessoryView` uses ARC (Automatic Reference Counting) and must be built with Xcode 4.5 or greater.
 
 Usage
 =====
