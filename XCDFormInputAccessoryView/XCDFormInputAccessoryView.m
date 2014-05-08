@@ -124,6 +124,15 @@ static NSArray * EditableTextInputsInView(UIView *view)
 	}];
 }
 
+- (UIResponder *) firstResponder
+{
+	NSArray *firstResponders = [self.responders filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(UIResponder *responder, NSDictionary *bindings) {
+		return [responder isFirstResponder];
+	}]];
+	UIResponder *firstResponder = [firstResponders lastObject];
+	return firstResponder;
+}
+
 - (void) setHasDoneButton:(BOOL)hasDoneButton
 {
 	[self setHasDoneButton:hasDoneButton animated:NO];
@@ -151,10 +160,7 @@ static NSArray * EditableTextInputsInView(UIView *view)
 
 - (void) selectAdjacentResponderAtIndex:(NSInteger)index
 {
-	NSArray *firstResponders = [self.responders filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(UIResponder *responder, NSDictionary *bindings) {
-		return [responder isFirstResponder];
-	}]];
-	UIResponder *firstResponder = [firstResponders lastObject];
+	UIResponder *firstResponder = [self firstResponder];
 	NSInteger offset = index == 0 ? -1 : +1;
 	NSInteger firstResponderIndex = [self.responders indexOfObject:firstResponder];
 	NSInteger adjacentResponderIndex = firstResponderIndex != NSNotFound ? firstResponderIndex + offset : NSNotFound;
@@ -180,6 +186,9 @@ static NSArray * EditableTextInputsInView(UIView *view)
 
 - (void) done
 {
+	UIResponder *firstResponder = [self firstResponder];
+	[firstResponder resignFirstResponder];
+
 	[[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
 }
 
