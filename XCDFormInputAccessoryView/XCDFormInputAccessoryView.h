@@ -9,11 +9,21 @@
 
 @interface XCDFormInputAccessoryView : UIView
 
-- (id) initWithResponders:(NSArray *)responders; // Objects must be UIResponder instances
+/** 
+ *  Objects must be UIResponder instances
+ */
+
+- (instancetype) initWithResponders:(NSArray *)responders;
+
+- (instancetype) initWithResponders:(NSArray *)responders tintColor:(UIColor *)tintColor;
 
 @property (nonatomic, strong) NSArray *responders;
 
-@property (nonatomic, assign) BOOL hasDoneButton; // Defaults to YES on iPhone, NO on iPad
+/**
+ * Defaults to YES on iPhone, NO on iPad
+ */
+
+@property (nonatomic, assign) BOOL hasDoneButton;
 
 - (void) setHasDoneButton:(BOOL)hasDoneButton animated:(BOOL)animated;
 

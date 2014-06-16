@@ -38,12 +38,17 @@ static NSArray * EditableTextInputsInView(UIView *view)
 
 @implementation XCDFormInputAccessoryView
 
-- (id) initWithFrame:(CGRect)frame
+- (instancetype) initWithFrame:(CGRect)frame
 {
 	return [self initWithResponders:nil];
 }
 
-- (id) initWithResponders:(NSArray *)responders
+- (id)initWithResponders:(NSArray *)responders
+{
+    return [self initWithResponders:responders tintColor:[UIColor blackColor]];
+}
+
+- (instancetype) initWithResponders:(NSArray *)responders tintColor:(UIColor *)tintColor
 {
 	if (!(self = [super initWithFrame:CGRectZero]))
 		return nil;
@@ -52,22 +57,36 @@ static NSArray * EditableTextInputsInView(UIView *view)
 	
 	self.toolbar = [[UIToolbar alloc] init];
 	self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	self.toolbar.tintColor = [UIColor blackColor];
-	
-	UIBarButtonItem *previousBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"UIButtonBarArrowLeft"] landscapeImagePhone:[UIImage imageNamed:@"UIButtonBarArrowLeftLandscape"] style:UIBarButtonItemStylePlain target:self action:@selector(previous:)];
+	self.toolbar.tintColor = tintColor;
+    
+    UIImage *previousImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowLeft"];
+    UIImage *previousLandscapeImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowLeftLandscape"];
+    UIImage *nextImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowRight"];
+    UIImage *nextLandscapeImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowRightLandscape"];
+    
+    CGFloat whiteColorValue = 0.f;
+    [tintColor getWhite:&whiteColorValue alpha:NULL];
+    if (whiteColorValue == 1.0) {
+        previousImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowLeftWhite"];
+        previousLandscapeImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowLeftLandscapeWhite"];
+        nextImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowRightWhite"];
+        nextLandscapeImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowRightLandscapeWhite"];
+    }
+    
+    UIBarButtonItem *previousBarButtonItem = [[UIBarButtonItem alloc] initWithImage:previousImage landscapeImagePhone:previousLandscapeImage style:UIBarButtonItemStylePlain target:self action:@selector(previous:)];
 	self.previousBarButtonItem = previousBarButtonItem;
 	
-	UIBarButtonItem *nextBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"UIButtonBarArrowRight"] landscapeImagePhone:[UIImage imageNamed:@"UIButtonBarArrowRightLandscape"] style:UIBarButtonItemStylePlain target:self action:@selector(next:)];
+	UIBarButtonItem *nextBarButtonItem = [[UIBarButtonItem alloc] initWithImage:nextImage landscapeImagePhone:nextLandscapeImage style:UIBarButtonItemStylePlain target:self action:@selector(next:)];
 	self.nextBarButtonItem = nextBarButtonItem;
-	
+    
 	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 	UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
 	[fixedSpace setWidth:32];
 	
-	self.toolbar.items = @[ previousBarButtonItem, fixedSpace, nextBarButtonItem, flexibleSpace ];
-	self.hasDoneButton = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
-	
+	self.toolbar.items = @[ self.previousBarButtonItem, fixedSpace, self.nextBarButtonItem, flexibleSpace ];
 	[self addSubview:self.toolbar];
+    
+	self.hasDoneButton = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
 	
 	self.frame = self.toolbar.frame = CGRectMake(0, 0, 0, 44);
 	

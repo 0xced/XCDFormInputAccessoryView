@@ -7,14 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0162EE991912A712002EF274 /* UIButtonBarArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 0162EE951912A712002EF274 /* UIButtonBarArrowLeft.png */; };
-		0162EE9A1912A712002EF274 /* UIButtonBarArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0162EE961912A712002EF274 /* UIButtonBarArrowLeft@2x.png */; };
-		0162EE9B1912A712002EF274 /* UIButtonBarArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 0162EE971912A712002EF274 /* UIButtonBarArrowRight.png */; };
-		0162EE9C1912A712002EF274 /* UIButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0162EE981912A712002EF274 /* UIButtonBarArrowRight@2x.png */; };
-		0162EEA11912A7B7002EF274 /* UIButtonBarArrowLeftLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 0162EE9D1912A7B7002EF274 /* UIButtonBarArrowLeftLandscape.png */; };
-		0162EEA21912A7B7002EF274 /* UIButtonBarArrowLeftLandscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0162EE9E1912A7B7002EF274 /* UIButtonBarArrowLeftLandscape@2x.png */; };
-		0162EEA31912A7B7002EF274 /* UIButtonBarArrowRightLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 0162EE9F1912A7B7002EF274 /* UIButtonBarArrowRightLandscape.png */; };
-		0162EEA41912A7B7002EF274 /* UIButtonBarArrowRightLandscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0162EEA01912A7B7002EF274 /* UIButtonBarArrowRightLandscape@2x.png */; };
+		0117847C194EDF19007CA22F /* XCDButtonBarArrow.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0117847B194EDF19007CA22F /* XCDButtonBarArrow.bundle */; };
 		C215427C164FD1C800262EB1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2154275164FD1C800262EB1 /* Default-568h@2x.png */; };
 		C215427D164FD1C800262EB1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C2154276164FD1C800262EB1 /* Default.png */; };
 		C215427E164FD1C800262EB1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2154277164FD1C800262EB1 /* Default@2x.png */; };
@@ -29,14 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0162EE951912A712002EF274 /* UIButtonBarArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarArrowLeft.png; sourceTree = "<group>"; };
-		0162EE961912A712002EF274 /* UIButtonBarArrowLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarArrowLeft@2x.png"; sourceTree = "<group>"; };
-		0162EE971912A712002EF274 /* UIButtonBarArrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarArrowRight.png; sourceTree = "<group>"; };
-		0162EE981912A712002EF274 /* UIButtonBarArrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarArrowRight@2x.png"; sourceTree = "<group>"; };
-		0162EE9D1912A7B7002EF274 /* UIButtonBarArrowLeftLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarArrowLeftLandscape.png; sourceTree = "<group>"; };
-		0162EE9E1912A7B7002EF274 /* UIButtonBarArrowLeftLandscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarArrowLeftLandscape@2x.png"; sourceTree = "<group>"; };
-		0162EE9F1912A7B7002EF274 /* UIButtonBarArrowRightLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarArrowRightLandscape.png; sourceTree = "<group>"; };
-		0162EEA01912A7B7002EF274 /* UIButtonBarArrowRightLandscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarArrowRightLandscape@2x.png"; sourceTree = "<group>"; };
+		0117847B194EDF19007CA22F /* XCDButtonBarArrow.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XCDButtonBarArrow.bundle; sourceTree = "<group>"; };
 		C2154275164FD1C800262EB1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C2154276164FD1C800262EB1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C2154277164FD1C800262EB1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -73,14 +59,7 @@
 		0162EE941912A712002EF274 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0162EE951912A712002EF274 /* UIButtonBarArrowLeft.png */,
-				0162EE961912A712002EF274 /* UIButtonBarArrowLeft@2x.png */,
-				0162EE9D1912A7B7002EF274 /* UIButtonBarArrowLeftLandscape.png */,
-				0162EE9E1912A7B7002EF274 /* UIButtonBarArrowLeftLandscape@2x.png */,
-				0162EE971912A712002EF274 /* UIButtonBarArrowRight.png */,
-				0162EE981912A712002EF274 /* UIButtonBarArrowRight@2x.png */,
-				0162EE9F1912A7B7002EF274 /* UIButtonBarArrowRightLandscape.png */,
-				0162EEA01912A7B7002EF274 /* UIButtonBarArrowRightLandscape@2x.png */,
+				0117847B194EDF19007CA22F /* XCDButtonBarArrow.bundle */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -194,17 +173,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C215427C164FD1C800262EB1 /* Default-568h@2x.png in Resources */,
-				0162EE9C1912A712002EF274 /* UIButtonBarArrowRight@2x.png in Resources */,
-				0162EE9B1912A712002EF274 /* UIButtonBarArrowRight.png in Resources */,
-				0162EE9A1912A712002EF274 /* UIButtonBarArrowLeft@2x.png in Resources */,
-				0162EEA31912A7B7002EF274 /* UIButtonBarArrowRightLandscape.png in Resources */,
-				0162EEA41912A7B7002EF274 /* UIButtonBarArrowRightLandscape@2x.png in Resources */,
 				C215427D164FD1C800262EB1 /* Default.png in Resources */,
-				0162EEA11912A7B7002EF274 /* UIButtonBarArrowLeftLandscape.png in Resources */,
-				0162EE991912A712002EF274 /* UIButtonBarArrowLeft.png in Resources */,
 				C215427E164FD1C800262EB1 /* Default@2x.png in Resources */,
 				C2154281164FD1C800262EB1 /* MainStoryboard.storyboard in Resources */,
-				0162EEA21912A7B7002EF274 /* UIButtonBarArrowLeftLandscape@2x.png in Resources */,
+				0117847C194EDF19007CA22F /* XCDButtonBarArrow.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

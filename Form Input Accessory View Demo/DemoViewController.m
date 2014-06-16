@@ -64,7 +64,12 @@
 {
 	if (!_inputAccessoryView)
 	{
-		_inputAccessoryView = [[XCDFormInputAccessoryView alloc] initWithResponders:self.textInputs];
+        // To use black colored toolbar
+        // [[UIToolbar appearance] setBarTintColor:[UIColor blackColor]];
+		//_inputAccessoryView = [[XCDFormInputAccessoryView alloc] initWithResponders:self.textInputs tintColor:[UIColor whiteColor]];
+        
+        _inputAccessoryView = [[XCDFormInputAccessoryView alloc] initWithResponders:self.textInputs];
+        
 		//_inputAccessoryView = [[XCDFormInputAccessoryView alloc] init];
 		//_inputAccessoryView = [[NSClassFromString(@"UIWebFormAccessory") alloc] init];
 	}
