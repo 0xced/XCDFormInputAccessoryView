@@ -7,12 +7,6 @@
 
 #import "XCDFormInputAccessoryView.h"
 
-static NSString * UIKitLocalizedString(NSString *string)
-{
-	NSBundle *UIKitBundle = [NSBundle bundleForClass:[UIApplication class]];
-	return UIKitBundle ? [UIKitBundle localizedStringForKey:string value:string table:nil] : string;
-}
-
 static NSArray * EditableTextInputsInView(UIView *view)
 {
 	NSMutableArray *textInputs = [NSMutableArray new];
