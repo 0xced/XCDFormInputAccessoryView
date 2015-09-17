@@ -53,18 +53,18 @@ static NSArray * EditableTextInputsInView(UIView *view)
     self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.toolbar.tintColor = tintColor;
 
-    UIImage *previousImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowLeft"];
-    UIImage *previousLandscapeImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowLeftLandscape"];
-    UIImage *nextImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowRight"];
-    UIImage *nextLandscapeImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowRightLandscape"];
-
+    UIImage *previousImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowLeft" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil];
+    UIImage *previousLandscapeImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowLeftLandscape" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil];
+    UIImage *nextImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowRight" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil];
+    UIImage *nextLandscapeImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowRightLandscape" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil];
+    
     CGFloat whiteColorValue = 0.f;
     [tintColor getWhite:&whiteColorValue alpha:NULL];
     if (whiteColorValue == 1.0) {
-        previousImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowLeftWhite"];
-        previousLandscapeImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowLeftLandscapeWhite"];
-        nextImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowRightWhite"];
-        nextLandscapeImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowRightLandscapeWhite"];
+        previousImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowLeftWhite" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil];
+        previousLandscapeImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowLeftLandscapeWhite" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil];
+        nextImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowRightWhite" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil];
+        nextLandscapeImage = [UIImage imageNamed:@"XCDButtonBarArrow.bundle/UIButtonBarArrowRightLandscapeWhite" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil];
     }
 
     UIBarButtonItem *previousBarButtonItem = [[UIBarButtonItem alloc] initWithImage:previousImage 
