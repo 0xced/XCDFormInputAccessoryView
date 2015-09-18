@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0117847C194EDF19007CA22F /* XCDButtonBarArrow.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0117847B194EDF19007CA22F /* XCDButtonBarArrow.bundle */; };
 		C215427C164FD1C800262EB1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2154275164FD1C800262EB1 /* Default-568h@2x.png */; };
 		C215427D164FD1C800262EB1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C2154276164FD1C800262EB1 /* Default.png */; };
 		C215427E164FD1C800262EB1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2154277164FD1C800262EB1 /* Default@2x.png */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0117847B194EDF19007CA22F /* XCDButtonBarArrow.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XCDButtonBarArrow.bundle; sourceTree = "<group>"; };
 		C2154275164FD1C800262EB1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C2154276164FD1C800262EB1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C2154277164FD1C800262EB1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -54,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0162EE941912A712002EF274 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0117847B194EDF19007CA22F /* XCDButtonBarArrow.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C2F07133164DCA75008F4BA2 = {
 			isa = PBXGroup;
 			children = (
@@ -103,11 +113,13 @@
 		C2F07169164F0E1E008F4BA2 /* XCDFormInputAccessoryView */ = {
 			isa = PBXGroup;
 			children = (
+				0162EE941912A712002EF274 /* Resources */,
 				C2F0716A164F0E32008F4BA2 /* XCDFormInputAccessoryView.h */,
 				C2F0716B164F0E32008F4BA2 /* XCDFormInputAccessoryView.m */,
 			);
 			path = XCDFormInputAccessoryView;
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 /* End PBXGroup section */
 
@@ -164,6 +176,7 @@
 				C215427D164FD1C800262EB1 /* Default.png in Resources */,
 				C215427E164FD1C800262EB1 /* Default@2x.png in Resources */,
 				C2154281164FD1C800262EB1 /* MainStoryboard.storyboard in Resources */,
+				0117847C194EDF19007CA22F /* XCDButtonBarArrow.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +220,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -235,7 +248,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
